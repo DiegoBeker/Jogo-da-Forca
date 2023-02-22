@@ -1,16 +1,19 @@
-export function Letras(){
-    const letras = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+export function Letras(props){
+    const letras = props.alfabeto;
     return(
         <ul className="letras">
-            {letras.map((l) => <Letra letra = {l}></Letra>)}
+            {letras.map((l) => <Letra key = {l} letra = {l}></Letra>)}
         </ul>
     );
 }
 
 function Letra(props){
+    const letra = props.letra;
     return(
-        <li className="letra">
-            <p>{props.letra}</p>
+        <li >
+            <button className="letra" disabled="" onClick={() => alert(letra)} >
+                {letra.toUpperCase()}
+            </button>
         </li>
     )
 }
