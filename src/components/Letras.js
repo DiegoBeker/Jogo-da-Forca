@@ -11,7 +11,7 @@ function Letra(props){
     const letra = props.letra;
     return(
         <li >
-            <button className="letra" disabled="" onClick={() => alert(letra)} >
+            <button className="letra" disabled="true" onClick={() => alert(letra)} >
                 {letra.toUpperCase()}
             </button>
         </li>
