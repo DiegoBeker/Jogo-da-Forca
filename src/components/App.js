@@ -17,7 +17,7 @@ export default function App() {
   return (
     <>
       <Jogo 
-        img = {forca}
+        img = {erros}
         desabilitado = {desabilitado}
         setDesabilitado = {setDesabilitado}
         palavra = {palavra}
@@ -25,10 +25,18 @@ export default function App() {
         erros = {erros}
         setErros = {setErros}
         gabarito ={gabarito}
-        setGabarito = {setGabarito}
-      >
+        setGabarito = {setGabarito}>
       </Jogo>
-      <Letras alfabeto = {alfabeto} desabilitado = {desabilitado}></Letras>
+      <Letras 
+      alfabeto = {alfabeto} 
+      desabilitado = {desabilitado}
+      gabarito = {gabarito}
+      palavra = {palavra}
+      setPalavra = {setPalavra}
+      erros ={erros}
+      setErros = {setErros}
+      >
+      </Letras>
     </>
   );
 }

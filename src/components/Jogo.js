@@ -8,9 +8,11 @@ export default function Jogo(props){
         const novaPalavra = sortearPalavra();
         props.setDesabilitado('');
         props.setErros(0);
-        props.setGabarito(novaPalavra);
         gabarito = novaPalavra.split('');
         gabarito.forEach(e => {aux.push('_')});
+        console.log(gabarito);
+        console.log(aux);
+        props.setGabarito(gabarito);
         props.setPalavra(aux);
     }
 
@@ -20,7 +22,7 @@ export default function Jogo(props){
 
     return(
         <div className="jogo">
-            <img src= {`assets/images/${props.img}`}/>
+            <img src= {`assets/images/forca${props.img}.png`}/>
             <div>
             <button onClick= {habilitarJogo} className="botao-palavra">Escolher Palavra</button>
             <p className="palavra">{props.palavra}</p>
