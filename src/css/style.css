@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 20px;
 }
 
@@ -60,6 +61,10 @@
     font-size: 16px;
     line-height: 19px;
     cursor: pointer;
+}
+
+.habilitada{
+    background-color: #E1ECF4;
 }
 
 .letras{
