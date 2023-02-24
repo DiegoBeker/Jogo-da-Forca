@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export function Letras(props){
     const letras = props.alfabeto;
+
     return(
         <ul className="letras">
             {letras.map((l) => 
@@ -9,11 +10,15 @@ export function Letras(props){
                     key = {l}
                     letra = {l}
                     desabilitado = {props.desabilitado}
+                    setDesabilitado = {props.setDesabilitado}
                     erros = {props.erros}
                     setErros = {props.setErros}
                     gabarito = {props.gabarito}
                     palavra = {props.palavra}
-                    setPalavra = {props.setPalavra}>
+                    setPalavra = {props.setPalavra}
+                    setGanhou = {props.setGanhou}
+                    resetar = {props.resetar}
+                    setResetar = {props.setResetar}>
                 </Letra>)}
         </ul>
     );
@@ -24,25 +29,59 @@ function Letra(props){
     const desabilitado = props.desabilitado;
     const [selecionado,setSelecionado] = useState(false);
     const gabarito = props.gabarito;
-    const palavra = [...props.palavra]
+    const palavra = props.palavra;
+    const resetar = props.resetar;
+    const setResetar = props.setResetar;
+
+    //verificaLetra();
+
+    function arrayEquals(a, b) {
+        return Array.isArray(a) &&
+            Array.isArray(b) &&
+            a.length === b.length &&
+            a.every((val, index) => val === b[index]);
+    }
+
+    function verificaLetra(){
+        if(resetar && selecionado){
+            setSelecionado(false);
+        }
+        return selecionado;
+    }
+    
     
     return(
         <li >
             <button 
-                className={(desabilitado || selecionado) ? "letra" : "letra habilitada"} 
-                disabled={desabilitado || selecionado} 
+                className={desabilitado || verificaLetra() ? "letra" : "letra habilitada"} 
+                disabled={desabilitado || verificaLetra() } 
                 onClick={() => {
                     setSelecionado(true);
                     if(gabarito.includes(letra)){
+                        let aux;
                         gabarito.forEach((element, index) => {
                             if(element === letra){
-                                palavra[index] = letra;
-                                props.setPalavra(palavra);
+                                palavra.splice(index, 1 ,letra);
+                                aux = [...palavra];
+                                props.setPalavra(aux); 
                             }
                         });
+                        if(arrayEquals(aux,gabarito)){
+                            props.setDesabilitado(true);
+                            props.setGanhou("verde");
+                            setResetar(true);
+                        }
                     }else{
-                        props.setErros(props.erros +1);
+                        const erros = props.erros + 1;
+                        props.setErros(erros);
+                        if(erros === 6){
+                            props.setPalavra(props.gabarito);
+                            props.setDesabilitado(true);
+                            props.setGanhou("vermelho");
+                            setResetar(true);
+                        }
                     }
+                    setResetar(false);
                 }}
             >
                 {letra.toUpperCase()}
