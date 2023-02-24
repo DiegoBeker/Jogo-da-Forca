@@ -89,6 +89,7 @@
 @media (max-width: 906px) {
     .letras{
         width: 416px;
+        margin-bottom: 0px;
     }
 
     .jogo img{
