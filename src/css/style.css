@@ -23,6 +23,7 @@
     border: none;
     background-color: #27AE60;
     color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
@@ -37,6 +38,7 @@
 }
 
 .palavra{
+    font-family: 'Noto Sans', sans-serif;
     color: black;
     font-weight: 700;
     font-size: 50px;
@@ -57,6 +59,7 @@
     justify-content: center;
     align-items: center;
     color: #798A9F;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
