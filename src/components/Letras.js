@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 export function Letras(props){
-    const letras = props.alfabeto;
+    const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
     return(
         <ul className="letras">
-            {letras.map((l) => 
+            {alfabeto.map((l) => 
                 <Letra 
                     key = {l}
                     letra = {l}
@@ -16,7 +16,7 @@ export function Letras(props){
                     gabarito = {props.gabarito}
                     palavra = {props.palavra}
                     setPalavra = {props.setPalavra}
-                    setGanhou = {props.setGanhou}
+                    setFim = {props.setFim}
                     resetar = {props.resetar}
                     setResetar = {props.setResetar}>
                 </Letra>)}
@@ -33,7 +33,6 @@ function Letra(props){
     const resetar = props.resetar;
     const setResetar = props.setResetar;
 
-    //verificaLetra();
 
     function arrayEquals(a, b) {
         return Array.isArray(a) &&
@@ -68,7 +67,7 @@ function Letra(props){
                         });
                         if(arrayEquals(aux,gabarito)){
                             props.setDesabilitado(true);
-                            props.setGanhou("verde");
+                            props.setFim("verde");
                             setResetar(true);
                         }
                     }else{
@@ -77,7 +76,7 @@ function Letra(props){
                         if(erros === 6){
                             props.setPalavra(props.gabarito);
                             props.setDesabilitado(true);
-                            props.setGanhou("vermelho");
+                            props.setFim("vermelho");
                             setResetar(true);
                         }
                     }
