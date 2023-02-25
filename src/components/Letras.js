@@ -52,6 +52,7 @@ function Letra(props) {
     return (
         <li>
             <button
+                data-test = "letter"
                 className={desabilitado || verificaLetra() ? "letra" : "letra habilitada"}
                 disabled={desabilitado || verificaLetra()}
                 onClick={() => {
