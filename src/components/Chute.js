@@ -12,9 +12,9 @@ export default function Chute(props){
     }
 
     function chutar(){
-        console.log(chute.split(""));
-        console.log(props.gabarito);
-        if(arrayEquals(chute.split(""), props.gabarito)){
+        const chuteLowCase = chute.split("").map((c) => c.toLowerCase());
+        console.log(chuteLowCase)
+        if(arrayEquals(chuteLowCase, props.gabarito)){
             props.setDesabilitado(true);
             props.setPalavra(props.gabarito);
             props.setFim("verde");
