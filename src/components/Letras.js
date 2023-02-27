@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function Letras(props) {
-    const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     return (
         <ul className="letras">
@@ -32,8 +32,7 @@ function Letra(props) {
     const palavra = props.palavra;
     const resetar = props.resetar;
     const setResetar = props.setResetar;
-
-
+    
     function arrayEquals(a, b) {
         return Array.isArray(a) &&
             Array.isArray(b) &&
@@ -72,9 +71,10 @@ function Letra(props) {
                             setResetar(true);
                         }
                     } else {
+                        const maxErros = 6;
                         const erros = props.erros + 1;
                         props.setErros(erros);
-                        if (erros === 6) {
+                        if (erros === maxErros) {
                             props.setPalavra(props.gabarito);
                             props.setDesabilitado(true);
                             props.setFim("vermelho");
@@ -87,5 +87,5 @@ function Letra(props) {
                 {letra.toUpperCase()}
             </button>
         </li>
-    )
+    );
 }

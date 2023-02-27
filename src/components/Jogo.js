@@ -1,15 +1,13 @@
-import palavras from '../palavras'
+import palavras from '../palavras';
 
 export default function Jogo(props){
-    
     function habilitarJogo(){
         const aux = [];
-        let gabarito;
         const novaPalavra = sortearPalavra();
         props.setDesabilitado(false);
         props.setErros(0);
-        gabarito = novaPalavra.split('');
-        gabarito.forEach(e => {aux.push('_')});
+        const gabarito = novaPalavra.split('');
+        gabarito.forEach(() => aux.push('_'));
         props.setGabarito(gabarito);
         props.setPalavra(aux);
         props.setFim('');
@@ -17,7 +15,7 @@ export default function Jogo(props){
     }
 
     function sortearPalavra(){
-        return palavras[Math.floor(Math.random() * (palavras.length - 1))]
+        return palavras[Math.floor(Math.random() * (palavras.length - 1))];
     }
 
     return(

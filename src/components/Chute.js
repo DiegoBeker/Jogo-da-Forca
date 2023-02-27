@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function Chute(props){
     
     const [chute, setChute] = useState("");
+    const desabilitado = props.desabilitado;
     
     function arrayEquals(a, b) {
         return Array.isArray(a) &&
@@ -32,8 +33,8 @@ export default function Chute(props){
     return (
         <div className="chute">
             <p>Já sei a palavra!</p>
-            <input data-test="guess-input" disabled = {props.desabilitado} value={chute} onChange={(event) => setChute(event.target.value)}></input>
-            <button data-test="guess-button" className="chutar-button" disabled = {props.desabilitado} onClick={chutar}>Chutar</button>
+            <input data-test="guess-input" disabled = {desabilitado} value={chute} onChange={(event) => setChute(event.target.value)}></input>
+            <button data-test="guess-button" className={desabilitado ? "chutar-button" : "chutar-button habilitada"} disabled = {props.desabilitado} onClick={chutar}>Chutar</button>
         </div>
     );
 }
