@@ -8,6 +8,7 @@ export default function Jogo(props){
         const novaPalavra = sortearPalavra();
         props.setDesabilitado(false);
         props.setErros(0);
+        console.log(novaPalavra);
         gabarito = novaPalavra.split('');
         gabarito.forEach(e => {aux.push('_')});
         props.setGabarito(gabarito);

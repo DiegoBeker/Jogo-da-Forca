@@ -3,6 +3,7 @@ import Jogo from "./Jogo";
 import "../css/reset.css";
 import "../css/style.css";
 import { Letras } from "./Letras";
+import Chute from "./Chute";
 
 export default function App() {
   const [desabilitado, setDesabilitado] = useState(true);
@@ -43,6 +44,17 @@ export default function App() {
         setResetar ={setResetar}
       >
       </Letras>
+      <Chute
+        desabilitado={desabilitado}
+        setDesabilitado={setDesabilitado}
+        gabarito={gabarito}
+        setFim={setFim}
+        resetar = {resetar}
+        setResetar ={setResetar}
+        setPalavra={setPalavra}
+        setErros={setErros}
+      >
+      </Chute>
     </>
   );
 }
