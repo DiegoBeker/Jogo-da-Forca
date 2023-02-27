@@ -32,7 +32,7 @@ function Letra(props) {
     const palavra = props.palavra;
     const resetar = props.resetar;
     const setResetar = props.setResetar;
-    
+
     function arrayEquals(a, b) {
         return Array.isArray(a) &&
             Array.isArray(b) &&
